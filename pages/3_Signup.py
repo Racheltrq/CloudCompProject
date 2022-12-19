@@ -5,9 +5,6 @@ st.title('Sign up')
 # Get the username and password from the user
 username = st.text_input("Username")
 password = st.text_input("Password", type="password")
-options = ['Male', 'Female', 'Other']
-gender = st.selectbox('Gender:', options)
-stream = st.text_input("Write me a sentence")
 # Define the login function
 def login():
   # TODO: Send the username and password to the authentication server
