@@ -3,7 +3,7 @@ import requests
 from streamlit import beta_container
 from streamlit_custom_notification_box import custom_notification_box
 
-st.title('Search hotels by attributes')
+st.title('Search hotels')
 
 # st.session_state['hotel'] = None
 # st.session_state['location'] = None
@@ -36,7 +36,9 @@ def set_state(hotel):
 
   custom_notification_box(icon='info', textDisplay='Please go to Book Hotel page to finish your booking', externalLink='', url='#', styles=styles, key="foo")
   st.session_state.hotel = hotel
-  #print(st.session_state)
+  st.session_state.checkin_date = checkin_date
+  st.session_state.checkout_date = checkout_date
+  print(st.session_state)
   API_ENDPOINT = "https://a91201uwt9.execute-api.us-east-1.amazonaws.com/dev/rec"
   response = requests.post(API_ENDPOINT, params={"hotel_name": hotel["name"]})
   st.session_state.rec = response.json()
